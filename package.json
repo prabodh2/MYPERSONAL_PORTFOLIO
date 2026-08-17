@@ -1,0 +1,25 @@
+{
+  "name": "prabodh-badimi-mern-portfolio",
+  "version": "1.0.0",
+  "description": "Full Stack MERN Portfolio Website for Prabodh Badimi",
+  "scripts": {
+    "install:all": "npm install && npm install --prefix server && npm install --prefix client",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "build:client": "npm run build --prefix client",
+    "seed": "npm run seed --prefix server",
+    "start": "node server/server.js"
+  },
+  "keywords": [
+    "mern",
+    "mongodb",
+    "express",
+    "react",
+    "nodejs",
+    "framer-motion",
+    "portfolio",
+    "prabodh-badimi"
+  ],
+  "author": "Prabodh Badimi",
+  "license": "ISC"
+}
