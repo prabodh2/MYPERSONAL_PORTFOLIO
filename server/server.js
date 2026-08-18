@@ -28,10 +28,20 @@ const contactLimiter = rateLimit({
 });
 
 // Middleware
+const allowedOrigins = process.env.CLIENT_URL
+  ? process.env.CLIENT_URL.split(',').map(url => url.trim())
+  : ['http://localhost:5173', 'http://127.0.0.1:5173'];
+
 app.use(cors({
-  origin: process.env.CLIENT_URL || '*',
-  methods: ['GET', 'POST'],
-  allowedHeaders: ['Content-Type']
+  origin: (origin, callback) => {
+    if (!origin || process.env.CLIENT_URL === '*' || allowedOrigins.includes(origin) || process.env.NODE_ENV !== 'production') {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
