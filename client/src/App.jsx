@@ -1,5 +1,6 @@
 import React from 'react';
 import { CustomCursor } from './components/CustomCursor';
+import { ScrollProgress } from './components/ScrollProgress';
 import { Navbar } from './components/Navbar';
 import { Hero } from './sections/Hero';
 import { About } from './sections/About';
@@ -14,6 +15,9 @@ import { Footer } from './components/Footer';
 export function App() {
   return (
     <div style={{ minHeight: '100vh', position: 'relative', overflowX: 'hidden' }}>
+      {/* Scroll Progress Bar */}
+      <ScrollProgress />
+
       {/* Sophisticated Animated Tech Grid Background */}
       <div className="bg-grid-overlay" />
 

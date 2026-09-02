@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Code2, Layout, Server, Database, Cloud, Wrench, Brain, BarChart3, Users, Check } from 'lucide-react';
-import { slideUp, staggerContainer } from '../utils/animations';
+import { TiltCard } from '../components/TiltCard';
+import { slideUp, staggerContainer, organicCardVariant } from '../utils/animations';
 import { fetchSkills } from '../services/api';
 
 const categoryIconMap = {
@@ -36,7 +37,7 @@ export const Skills = () => {
           viewport={{ once: true, margin: '-80px' }}
         >
           {/* Section Header */}
-          <motion.div variants={slideUp} style={{ textAlign: 'center', marginBottom: '24px' }}>
+          <motion.div variants={slideUp} style={{ textAlign: 'center', marginBottom: '32px' }}>
             <h2 className="heading-md text-gradient">Technical & Professional Competencies</h2>
           </motion.div>
 
@@ -48,66 +49,68 @@ export const Skills = () => {
               return (
                 <motion.div
                   key={cat._id || idx}
-                  variants={slideUp}
-                  whileHover={{ y: -6, scale: 1.01 }}
-                  transition={{ duration: 0.2 }}
-                  className="glass-panel skill-card"
+                  variants={organicCardVariant(idx)}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '24px' }}>
-                    <div
-                      style={{
-                        width: '46px',
-                        height: '46px',
-                        borderRadius: '12px',
-                        background: 'rgba(59, 130, 246, 0.12)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: 'var(--accent-blue-light)',
-                        border: '1px solid var(--border-color)'
-                      }}
-                    >
-                      <IconComponent size={24} />
-                    </div>
-                    <h3 style={{ fontSize: '1.2rem', color: 'var(--text-primary)', fontWeight: 700 }}>
-                      {cat.category}
-                    </h3>
-                  </div>
-
-                  {/* Skills Pill Items */}
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                    {cat.items.map((item, iIdx) => (
+                  <TiltCard maxTilt={8} className="glass-panel skill-card">
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '24px' }}>
                       <motion.div
-                        key={iIdx}
-                        whileHover={{ scale: 1.05 }}
+                        whileHover={{ rotate: 360, scale: 1.15 }}
+                        transition={{ duration: 0.5 }}
                         style={{
-                          display: 'inline-flex',
+                          width: '46px',
+                          height: '46px',
+                          borderRadius: '12px',
+                          background: 'rgba(59, 130, 246, 0.12)',
+                          display: 'flex',
                           alignItems: 'center',
-                          gap: '8px',
-                          padding: '7px 14px',
-                          borderRadius: '10px',
-                          background: 'var(--bg-pill)',
-                          border: '1px solid var(--border-color)',
-                          color: 'var(--text-primary)',
-                          fontSize: '0.88rem',
-                          fontWeight: 500,
-                          cursor: 'default',
-                          transition: 'var(--transition-smooth)'
-                        }}
-                        onMouseEnter={e => {
-                          e.currentTarget.style.borderColor = 'var(--accent-blue)';
-                          e.currentTarget.style.boxShadow = '0 0 15px var(--accent-glow)';
-                        }}
-                        onMouseLeave={e => {
-                          e.currentTarget.style.borderColor = 'var(--border-color)';
-                          e.currentTarget.style.boxShadow = 'none';
+                          justifyContent: 'center',
+                          color: 'var(--accent-blue-light)',
+                          border: '1px solid var(--border-color)'
                         }}
                       >
-                        <Check size={14} color="var(--accent-blue-light)" />
-                        <span>{item.name}</span>
+                        <IconComponent size={24} />
                       </motion.div>
-                    ))}
-                  </div>
+                      <h3 style={{ fontSize: '1.2rem', color: 'var(--text-primary)', fontWeight: 700 }}>
+                        {cat.category}
+                      </h3>
+                    </div>
+
+                    {/* Skills Pill Items */}
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                      {cat.items.map((item, iIdx) => (
+                        <motion.div
+                          key={iIdx}
+                          whileHover={{ scale: 1.08, y: -2 }}
+                          transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '8px',
+                            padding: '7px 14px',
+                            borderRadius: '10px',
+                            background: 'var(--bg-pill)',
+                            border: '1px solid var(--border-color)',
+                            color: 'var(--text-primary)',
+                            fontSize: '0.88rem',
+                            fontWeight: 500,
+                            cursor: 'default',
+                            transition: 'var(--transition-smooth)'
+                          }}
+                          onMouseEnter={e => {
+                            e.currentTarget.style.borderColor = 'var(--accent-blue)';
+                            e.currentTarget.style.boxShadow = '0 0 15px var(--accent-glow)';
+                          }}
+                          onMouseLeave={e => {
+                            e.currentTarget.style.borderColor = 'var(--border-color)';
+                            e.currentTarget.style.boxShadow = 'none';
+                          }}
+                        >
+                          <Check size={14} color="var(--accent-blue-light)" />
+                          <span>{item.name}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </TiltCard>
                 </motion.div>
               );
             })}
@@ -123,6 +126,7 @@ export const Skills = () => {
         }
         .skill-card {
           padding: 30px;
+          height: 100%;
         }
         @media (max-width: 992px) {
           .skills-grid {
@@ -141,4 +145,3 @@ export const Skills = () => {
     </section>
   );
 };
-

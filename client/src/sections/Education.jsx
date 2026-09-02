@@ -1,11 +1,63 @@
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { GraduationCap, Calendar, MapPin, Award } from 'lucide-react';
-import { slideUp, staggerContainer } from '../utils/animations';
+import React, { useEffect, useState, useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { GraduationCap, Calendar, MapPin, Award, Bus } from 'lucide-react';
+import { TiltCard } from '../components/TiltCard';
+import { slideUp, staggerContainer, organicCardVariant } from '../utils/animations';
 import { fetchEducation } from '../services/api';
+
+const TimelineDot = ({ progress, index, totalItems }) => {
+  // Calculate threshold for when the bus physically reaches/crosses this node
+  const threshold = index === 0 ? 0 : (index / totalItems) * 0.92;
+
+  const background = useTransform(
+    progress,
+    [Math.max(0, threshold - 0.12), threshold + 0.03],
+    ['var(--bg-primary)', 'var(--accent-blue)']
+  );
+
+  const boxShadow = useTransform(
+    progress,
+    [Math.max(0, threshold - 0.12), threshold + 0.03],
+    ['0 0 10px var(--accent-glow)', '0 0 18px var(--accent-glow-strong)']
+  );
+
+  return (
+    <motion.div
+      style={{
+        position: 'absolute',
+        left: '24px',
+        top: '28px',
+        transform: 'translate(-50%, -50%)',
+        width: '22px',
+        height: '22px',
+        borderRadius: '50%',
+        background: background,
+        border: '3px solid var(--accent-blue-light)',
+        boxShadow: boxShadow,
+        zIndex: 3
+      }}
+    />
+  );
+};
 
 export const Education = () => {
   const [educationList, setEducationList] = useState([]);
+  const timelineRef = useRef(null);
+
+  // Scroll Progress tracking for the timeline
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start 65%", "end 85%"]
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 220,
+    damping: 28,
+    restDelta: 0.001
+  });
+
+  // Calculate animated fill height and bus movement offset
+  const fillHeight = useTransform(smoothProgress, [0, 1], ["0%", "100%"]);
 
   useEffect(() => {
     fetchEducation().then(data => setEducationList(data));
@@ -21,55 +73,89 @@ export const Education = () => {
           viewport={{ once: true, margin: '-80px' }}
         >
           {/* Section Header */}
-          <motion.div variants={slideUp} style={{ textAlign: 'center', marginBottom: '24px' }}>
+          <motion.div variants={slideUp} style={{ textAlign: 'center', marginBottom: '36px' }}>
             <h2 className="heading-md text-gradient">Academic Journey</h2>
           </motion.div>
 
           {/* Timeline Container */}
-          <div style={{ position: 'relative', maxWidth: '800px', margin: '0 auto' }}>
-            {/* Animated Connecting Line */}
+          <div ref={timelineRef} style={{ position: 'relative', maxWidth: '850px', margin: '0 auto' }}>
+            {/* Background Guide Line */}
             <div
               style={{
                 position: 'absolute',
-                top: 0,
-                bottom: 0,
+                top: '24px',
+                bottom: '24px',
                 left: '24px',
-                width: '3px',
-                background: 'linear-gradient(to bottom, var(--accent-blue) 0%, var(--accent-cyan) 100%)',
-                borderRadius: '3px'
+                width: '4px',
+                background: 'rgba(59, 130, 246, 0.15)',
+                borderRadius: '4px',
+                transform: 'translateX(-50%)'
               }}
             />
 
+            {/* Animated Fill Progress Line */}
+            <motion.div
+              style={{
+                position: 'absolute',
+                top: '24px',
+                bottom: '24px',
+                height: fillHeight,
+                left: '24px',
+                width: '4px',
+                background: 'linear-gradient(to bottom, var(--accent-blue) 0%, var(--accent-cyan) 100%)',
+                borderRadius: '4px',
+                transform: 'translateX(-50%)',
+                boxShadow: '0 0 12px var(--accent-glow)'
+              }}
+            />
+
+            {/* Scroll-Driven Moving Bus Badge */}
+            <motion.div
+              style={{
+                position: 'absolute',
+                left: '24px',
+                top: fillHeight,
+                transform: 'translate(-50%, -50%)',
+                width: '42px',
+                height: '42px',
+                borderRadius: '50%',
+                background: 'linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 100%)',
+                border: '3px solid var(--bg-primary)',
+                boxShadow: '0 0 25px var(--accent-glow-strong), 0 4px 15px rgba(0,0,0,0.5)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#ffffff',
+                zIndex: 10,
+                cursor: 'pointer'
+              }}
+              whileHover={{ scale: 1.2, rotate: 10 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+            >
+              <Bus size={20} />
+            </motion.div>
+
             {/* Timeline Items */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '36px' }}>
               {educationList.map((item, index) => (
                 <motion.div
                   key={item._id || index}
-                  variants={slideUp}
+                  variants={organicCardVariant(index)}
                   style={{
                     position: 'relative',
-                    paddingLeft: '64px'
+                    paddingLeft: '68px'
                   }}
                 >
-                  {/* Timeline Dot */}
-                  <div
-                    style={{
-                      position: 'absolute',
-                      left: '12px',
-                      top: '24px',
-                      transform: 'translateX(-50%)',
-                      width: '24px',
-                      height: '24px',
-                      borderRadius: '50%',
-                      background: item.isPrimary ? 'var(--accent-blue)' : 'var(--bg-primary)',
-                      border: '3px solid var(--accent-blue-light)',
-                      boxShadow: '0 0 12px var(--accent-glow-strong)',
-                      zIndex: 2
-                    }}
+                  {/* Dynamic Timeline Dot Node - turns dark blue as bus crosses it */}
+                  <TimelineDot
+                    progress={smoothProgress}
+                    index={index}
+                    totalItems={educationList.length}
                   />
 
-                  {/* Education Card */}
-                  <div
+                  {/* Education Card wrapped with 3D Tilt */}
+                  <TiltCard
+                    maxTilt={6}
                     className="glass-panel"
                     style={{
                       padding: '28px',
@@ -112,7 +198,7 @@ export const Education = () => {
                         <Award size={16} color="var(--accent-cyan)" /> Major in Computer Science and Technology with full-stack concentration.
                       </div>
                     )}
-                  </div>
+                  </TiltCard>
                 </motion.div>
               ))}
             </div>
