@@ -6,18 +6,20 @@ import { slideUp, staggerContainer, organicCardVariant } from '../utils/animatio
 import { fetchEducation } from '../services/api';
 
 const TimelineDot = ({ progress, index, totalItems }) => {
-  // Calculate threshold for when the bus physically reaches/crosses this node
-  const threshold = index === 0 ? 0 : (index / totalItems) * 0.92;
+  // Calculate exact threshold for when the bus touches/crosses this node
+  const maxIndex = totalItems > 1 ? totalItems - 1 : 1;
+  const threshold = index === 0 ? 0 : (index / maxIndex) * 0.85;
 
+  // Circle stays white UNTIL progress reaches/crosses threshold
   const background = useTransform(
     progress,
-    [Math.max(0, threshold - 0.12), threshold + 0.03],
+    [Math.max(0, threshold - 0.01), Math.min(1, threshold + 0.05)],
     ['var(--bg-primary)', 'var(--accent-blue)']
   );
 
   const boxShadow = useTransform(
     progress,
-    [Math.max(0, threshold - 0.12), threshold + 0.03],
+    [Math.max(0, threshold - 0.01), Math.min(1, threshold + 0.05)],
     ['0 0 10px var(--accent-glow)', '0 0 18px var(--accent-glow-strong)']
   );
 
@@ -146,7 +148,7 @@ export const Education = () => {
                     paddingLeft: '68px'
                   }}
                 >
-                  {/* Dynamic Timeline Dot Node - turns dark blue as bus crosses it */}
+                  {/* Dynamic Timeline Dot Node - turns dark blue ONLY when bus crosses it */}
                   <TimelineDot
                     progress={smoothProgress}
                     index={index}
