@@ -14,8 +14,8 @@ export const Hero = () => {
           animate="visible"
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '48px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '36px',
             alignItems: 'center'
           }}
         >
@@ -41,7 +41,7 @@ export const Hero = () => {
             <motion.h3
               variants={slideUp}
               style={{
-                fontSize: '1.35rem',
+                fontSize: 'clamp(1.15rem, 3vw, 1.35rem)',
                 fontWeight: 600,
                 color: 'var(--text-primary)',
                 lineHeight: 1.3,
@@ -55,7 +55,7 @@ export const Hero = () => {
               variants={slideUp}
               style={{
                 color: 'var(--text-secondary)',
-                fontSize: '1.05rem',
+                fontSize: '1rem',
                 lineHeight: 1.7,
                 marginBottom: '32px',
                 maxWidth: '600px'
@@ -65,7 +65,7 @@ export const Hero = () => {
             </motion.p>
 
             {/* CTA Buttons */}
-            <motion.div variants={slideUp} style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', marginBottom: '40px' }}>
+            <motion.div variants={slideUp} className="btn-group-responsive" style={{ marginBottom: '36px' }}>
               <a href="#projects" className="btn-primary">
                 View My Projects <ArrowRight size={18} />
               </a>

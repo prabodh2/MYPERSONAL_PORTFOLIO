@@ -19,9 +19,9 @@ export const About = () => {
           </motion.div>
 
           {/* Interactive About Cards Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px' }}>
             {/* Card 1: Academic Background */}
-            <motion.div variants={slideUp} className="glass-panel" style={{ padding: '32px' }}>
+            <motion.div variants={slideUp} className="glass-panel about-card">
               <div
                 style={{
                   width: '48px',
@@ -46,7 +46,7 @@ export const About = () => {
             </motion.div>
 
             {/* Card 2: Development Focus */}
-            <motion.div variants={slideUp} className="glass-panel" style={{ padding: '32px' }}>
+            <motion.div variants={slideUp} className="glass-panel about-card">
               <div
                 style={{
                   width: '48px',
@@ -71,7 +71,7 @@ export const About = () => {
             </motion.div>
 
             {/* Card 3: Personal Interests */}
-            <motion.div variants={slideUp} className="glass-panel" style={{ padding: '32px' }}>
+            <motion.div variants={slideUp} className="glass-panel about-card">
               <div
                 style={{
                   width: '48px',
@@ -93,7 +93,7 @@ export const About = () => {
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.98rem', lineHeight: 1.6, marginBottom: '16px' }}>
                 Outside of technology, I enjoy playing badminton and listening to music. Balancing active sports and music keeps me energetic, focused, and creative when tackling complex technical challenges.
               </p>
-              <div style={{ display: 'flex', gap: '16px' }}>
+              <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.85rem', color: 'var(--accent-blue-light)', background: 'rgba(59, 130, 246, 0.1)', padding: '4px 12px', borderRadius: '20px' }}>
                   <Activity size={14} /> Badminton
                 </span>
@@ -105,6 +105,17 @@ export const About = () => {
           </div>
         </motion.div>
       </div>
+
+      <style>{`
+        .about-card {
+          padding: 32px;
+        }
+        @media (max-width: 640px) {
+          .about-card {
+            padding: 20px 16px;
+          }
+        }
+      `}</style>
     </section>
   );
 };

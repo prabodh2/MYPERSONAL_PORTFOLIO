@@ -3,10 +3,10 @@ import { CustomCursor } from './components/CustomCursor';
 import { Navbar } from './components/Navbar';
 import { Hero } from './sections/Hero';
 import { About } from './sections/About';
-import { Education } from './sections/Education';
 import { Experience } from './sections/Experience';
-import { Skills } from './sections/Skills';
 import { Projects } from './sections/Projects';
+import { Skills } from './sections/Skills';
+import { Education } from './sections/Education';
 import { Languages } from './sections/Languages';
 import { Contact } from './sections/Contact';
 import { Footer } from './components/Footer';
@@ -27,10 +27,10 @@ export function App() {
       <main>
         <Hero />
         <About />
-        <Education />
         <Experience />
-        <Skills />
         <Projects />
+        <Skills />
+        <Education />
         <Languages />
         <Contact />
       </main>

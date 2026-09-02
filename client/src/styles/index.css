@@ -107,6 +107,12 @@ body {
 }
 
 /* Utility Classes */
+/* Smooth scrolling offsets for section anchors */
+section[id] {
+  scroll-margin-top: calc(var(--nav-height) + 12px);
+}
+
+/* Utility Classes */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -145,15 +151,15 @@ body {
 
 .heading-lg {
   font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.02em;
 }
 
 .heading-md {
   font-family: var(--font-heading);
-  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-size: clamp(1.6rem, 3.5vw, 2.5rem);
   font-weight: 700;
   letter-spacing: -0.01em;
 }
@@ -225,6 +231,13 @@ body {
   transform: translateY(-2px);
 }
 
+/* Responsive Button Groups */
+.btn-group-responsive {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
 /* Background Animated Particles/Grid */
 .bg-grid-overlay {
   position: fixed;
@@ -244,10 +257,35 @@ body {
 
 /* Responsive Rules */
 @media (max-width: 768px) {
+  :root {
+    --nav-height: 70px;
+  }
   .section-padding {
-    padding: 60px 0;
+    padding: 36px 0;
   }
   .container {
     padding: 0 16px;
   }
+  .glass-panel {
+    border-radius: 16px;
+  }
+  .btn-group-responsive {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn-group-responsive .btn-primary,
+  .btn-group-responsive .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
 }
+
+@media (max-width: 480px) {
+  :root {
+    --nav-height: 64px;
+  }
+  .container {
+    padding: 0 12px;
+  }
+}
+

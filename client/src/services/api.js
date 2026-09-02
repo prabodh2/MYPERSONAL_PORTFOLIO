@@ -15,37 +15,15 @@ const localFallback = {
   projects: [
     {
       _id: "p1",
-      title: "Paisa Pakad",
-      subtitle: "Secure Digital Payment & Money Management App",
-      description: "A secure digital payment and money management application designed for easy transactions and savings.",
-      contributions: [
-        "Secure digital payment functionality",
-        "Sending money",
-        "Receiving money",
-        "Money tracking",
-        "Security improvements",
-        "Performance improvements",
-        "User experience improvements"
-      ],
-      tags: ["Digital Payments", "Money Management", "Security", "Performance", "UX"],
-      isClone: false,
-      githubUrl: null,
-      visualTheme: "fintech",
-      featured: true
-    },
-    {
-      _id: "p2",
       title: "Cars24 Clone",
-      subtitle: "Practice / Clone Project",
-      description: "A web application that enables users to buy, sell, and exchange used cars.",
+      subtitle: "Used-Car Marketplace Web Application",
+      description: "Built a used-car marketplace web application enabling users to browse, list, buy, sell, and exchange vehicles.",
       contributions: [
-        "Car listings interface",
-        "Price estimation feature",
-        "Smooth user interaction",
-        "Responsive design",
-        "Efficient performance"
+        "Built a used-car marketplace web application enabling users to browse, list, buy, sell, and exchange vehicles.",
+        "Implemented car listings, price estimation, search-oriented user flows, and responsive user interface features.",
+        "Focused on responsive design, performance optimization, usability, and a smooth end-to-end user experience."
       ],
-      tags: ["Web Development", "Responsive Design", "Automotive", "UX"],
+      tags: ["React.js", "Node.js", "Express.js", "MongoDB", "Marketplace", "UX"],
       isClone: true,
       cloneLabel: "Practice / Clone Project",
       githubUrl: "https://github.com/prabodh2/Cars_24_FullStackApp",
@@ -53,16 +31,16 @@ const localFallback = {
       featured: true
     },
     {
-      _id: "p3",
-      title: "Food Delivery App",
+      _id: "p2",
+      title: "Food Delivery Application",
       subtitle: "Full-Stack Food Ordering & Management System",
-      description: "A full-stack food ordering application featuring role-based access control and administrative operations.",
+      description: "Developed a full-stack food ordering application featuring role-based access control and administrative workflows.",
       contributions: [
         "Developed a full-stack food ordering application using Flutter for the frontend and Node.js for the backend.",
-        "Implemented role-based access control for Users, Restaurant Owners, and Admins.",
-        "Built core features for food ordering, restaurant management, and administrative operations with a focus on usability and scalability."
+        "Implemented role-based access control for Users, Restaurant Owners, and Administrators.",
+        "Built core food ordering, restaurant management, and administrative workflows with a focus on usability, maintainability, and scalability."
       ],
-      tags: ["Flutter", "Node.js", "Full Stack", "Food Delivery", "RBAC"],
+      tags: ["Flutter", "Node.js", "Express.js", "Full Stack", "Food Delivery", "RBAC"],
       isClone: false,
       githubUrl: "https://github.com/prabodh2",
       visualTheme: "food",
@@ -74,36 +52,36 @@ const localFallback = {
       _id: "e1",
       role: "Frontend Developer Intern",
       company: "CODEVERSEBYSAIKUBER",
-      location: "Remote",
-      period: "August 2025 – December 2025",
+      location: "Remote, India",
+      period: "Aug–Dec 2025",
       responsibilities: [
         "Developed a company website from scratch with a focus on responsive design and intuitive user experience.",
-        "Built user interfaces using modern frontend technologies, ensuring clean and maintainable code.",
-        "Followed best practices to improve performance, scalability, and overall application quality.",
-        "Worked closely with designers and backend developers to deliver accurate and production-ready features.",
-        "Tested and debugged components to ensure smooth functionality across different devices and browsers."
+        "Built user interfaces using modern frontend technologies, following clean and maintainable coding practices.",
+        "Applied best practices to improve performance, scalability, and overall application quality.",
+        "Collaborated with designers and backend developers to deliver accurate, production-ready features.",
+        "Tested and debugged components to ensure reliable functionality across devices and browsers."
       ],
-      tags: ["HTML", "CSS", "JavaScript", "React.js"]
+      tags: ["HTML5", "CSS3", "JavaScript", "React.js", "Responsive Design"]
     },
     {
       _id: "e2",
       role: "Full Stack Developer Intern",
       company: "Funds And Toil Private Limited",
-      location: "Remote",
-      period: "May 2026 – July 2026",
+      location: "Remote, India",
+      period: "May–Jul 2026",
       responsibilities: [
         "Developed and implemented a full-stack e-commerce website from scratch using the MERN stack.",
-        "Built responsive and user-friendly interfaces using React.js, focusing on performance and seamless user experience.",
+        "Built responsive, user-friendly interfaces with React.js, focusing on performance and seamless user experience.",
         "Developed backend APIs and server-side functionality using Node.js and Express.js.",
-        "Integrated MongoDB for efficient data management and implemented core e-commerce functionalities."
+        "Integrated MongoDB for efficient data management and implemented core e-commerce functionality."
       ],
-      tags: ["React.js", "Node.js", "Express.js", "MongoDB", "MERN Stack", "E-Commerce"]
+      tags: ["React.js", "Node.js", "Express.js", "MongoDB", "RESTful APIs", "MERN Stack"]
     }
   ],
   education: [
     {
       _id: "edu1",
-      degree: "Bachelor of Technology in Computer Science and Technology",
+      degree: "B.Tech in Computer Science and Technology",
       institution: "ITM Skills University",
       location: "Kharghar, Maharashtra",
       period: "2023 – 2027",
@@ -111,7 +89,7 @@ const localFallback = {
     },
     {
       _id: "edu2",
-      degree: "Intermediate Education (MPC)",
+      degree: "Class 12 (Intermediate)",
       institution: "Sri Chaitanya College",
       location: "Vijayawada, Andhra Pradesh",
       period: "2021 – 2023",
@@ -119,7 +97,7 @@ const localFallback = {
     },
     {
       _id: "edu3",
-      degree: "Secondary School Certificate (SSC)",
+      degree: "Class 10 (SSC)",
       institution: "Bhashyam High School",
       location: "Adoni, Andhra Pradesh",
       period: "2020 – 2021",
@@ -129,54 +107,63 @@ const localFallback = {
   skills: [
     {
       _id: "s1",
-      category: "Technical Skills",
+      category: "Programming Languages",
       iconName: "Code2",
       items: [
         { name: "C++", icon: "Code" },
-        { name: "JavaScript", icon: "FileCode" },
-        { name: "CSS", icon: "Palette" },
-        { name: "HTML", icon: "Layout" },
-        { name: "React", icon: "Atom" },
         { name: "Python", icon: "Terminal" },
-        { name: "Flutter", icon: "Smartphone" },
-        { name: "Node.js", icon: "Server" },
-        { name: "Express.js", icon: "Cpu" },
-        { name: "MongoDB", icon: "Database" }
+        { name: "JavaScript", icon: "FileCode" },
+        { name: "HTML5", icon: "Layout" },
+        { name: "CSS3", icon: "Palette" }
       ]
     },
-
+    {
+      _id: "s2",
+      category: "Frontend",
+      iconName: "Layout",
+      items: [
+        { name: "React.js", icon: "Atom" },
+        { name: "Flutter", icon: "Smartphone" },
+        { name: "Responsive Web Design", icon: "Layers" }
+      ]
+    },
     {
       _id: "s3",
-      category: "Data Science",
-      iconName: "BarChart3",
+      category: "Backend",
+      iconName: "Server",
       items: [
-        { name: "Data Analysis", icon: "PieChart" },
-        { name: "Data Visualization", icon: "LineChart" }
+        { name: "Node.js", icon: "Server" },
+        { name: "Express.js", icon: "Cpu" },
+        { name: "RESTful APIs", icon: "Globe" }
       ]
     },
     {
       _id: "s4",
-      category: "Cloud Computing",
-      iconName: "Cloud",
-      items: [{ name: "AWS", icon: "CloudRain" }]
+      category: "Database",
+      iconName: "Database",
+      items: [
+        { name: "MongoDB", icon: "Database" }
+      ]
     },
     {
       _id: "s5",
-      category: "Tools",
-      iconName: "Wrench",
+      category: "Cloud & Tools",
+      iconName: "Cloud",
       items: [
+        { name: "AWS", icon: "CloudRain" },
         { name: "Git", icon: "GitBranch" },
         { name: "GitHub", icon: "Github" }
       ]
     },
     {
       _id: "s6",
-      category: "Soft Skills",
-      iconName: "Users",
+      category: "Core Competencies",
+      iconName: "Wrench",
       items: [
-        { name: "Communication", icon: "MessageSquare" },
-        { name: "Active Listener", icon: "Ear" },
-        { name: "Hard Working", icon: "Zap" }
+        { name: "Full Stack Development", icon: "Layers" },
+        { name: "API Integration", icon: "Link" },
+        { name: "Debugging", icon: "Bug" },
+        { name: "Performance Optimization", icon: "Zap" }
       ]
     }
   ]

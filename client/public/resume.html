@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prabodh Badimi — Resume</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Liberation+Sans:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Liberation Sans', 'Inter', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       color: #000000;
       background: #e2e8f0;
       padding: 30px 15px;
@@ -19,7 +19,7 @@
       max-width: 820px;
       margin: 0 auto;
       background: #ffffff;
-      padding: 45px 50px;
+      padding: 40px 48px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       border-radius: 4px;
     }
@@ -28,83 +28,95 @@
       margin-bottom: 16px;
     }
     .name {
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: 0.2px;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: #1e40af;
       margin-bottom: 4px;
     }
     .title {
-      font-size: 18px;
+      font-size: 15px;
       font-weight: 700;
-      margin-bottom: 12px;
+      color: #1e40af;
+      margin-bottom: 6px;
+    }
+    .sub-skills {
+      font-size: 13px;
+      color: #374151;
+      margin-bottom: 6px;
     }
     .contact-line {
-      font-size: 13.5px;
+      font-size: 13px;
       color: #111111;
       font-weight: 500;
     }
     .contact-line a {
-      color: #000000;
+      color: #1d4ed8;
       text-decoration: none;
     }
     .contact-line a:hover {
       text-decoration: underline;
     }
     .section-title {
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      border-bottom: 1px solid #111111;
-      padding-bottom: 3px;
+      color: #1e40af;
+      border-bottom: 1.5px solid #1e40af;
+      padding-bottom: 2px;
       margin-top: 16px;
       margin-bottom: 8px;
     }
     .summary-text {
-      font-size: 13.5px;
-      font-style: italic;
+      font-size: 13px;
       line-height: 1.45;
       color: #111111;
-    }
-    .education-list {
-      list-style: none;
-      font-size: 13.5px;
-    }
-    .education-item {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 4px;
-    }
-    .edu-bullet {
-      font-weight: 700;
-      margin-right: 6px;
-    }
-    .edu-title {
-      font-weight: 500;
-    }
-    .edu-dates {
-      font-weight: 700;
-      white-space: nowrap;
+      text-align: justify;
     }
     .exp-item {
       margin-bottom: 12px;
     }
     .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
       font-size: 13.5px;
       font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .exp-sub {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 600;
+      color: #374151;
       margin-bottom: 4px;
     }
+    .exp-sub span.location {
+      font-style: italic;
+      color: #4b5563;
+      font-weight: 400;
+    }
     ul.bullets {
-      margin-left: 20px;
-      font-size: 13.5px;
+      margin-left: 18px;
+      font-size: 13px;
     }
     ul.bullets li {
       margin-bottom: 3px;
       line-height: 1.4;
     }
+    .project-item {
+      margin-bottom: 10px;
+      font-size: 13px;
+    }
+    .project-title {
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
     .skills-table {
       width: 100%;
-      font-size: 13.5px;
+      font-size: 13px;
       border-collapse: collapse;
     }
     .skills-table td {
@@ -113,17 +125,37 @@
     }
     .skill-label {
       font-weight: 700;
-      width: 150px;
+      width: 175px;
     }
-    .project-item {
-      margin-bottom: 10px;
-      font-size: 13.5px;
+    .cert-item {
+      margin-bottom: 6px;
+      font-size: 13px;
     }
-    .project-title {
+    .cert-title {
       font-weight: 700;
-      margin-bottom: 2px;
     }
-    
+    .cert-sub {
+      color: #4b5563;
+      font-size: 12.5px;
+    }
+    .education-list {
+      list-style: none;
+      font-size: 13px;
+    }
+    .education-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+    .edu-title {
+      font-weight: 600;
+    }
+    .edu-dates {
+      font-weight: 700;
+      color: #4b5563;
+      white-space: nowrap;
+    }
+
     @media print {
       body { background: #ffffff; padding: 0; }
       .page { box-shadow: none; padding: 0; width: 100%; max-width: 100%; }
@@ -132,126 +164,150 @@
 </head>
 <body>
 
-
   <div class="page">
     <!-- Header -->
     <div class="header">
-      <h1 class="name">Prabodh Badimi</h1>
-      <h2 class="title">Full Stack Developer</h2>
+      <h1 class="name">PRABODH BADIMI</h1>
+      <h2 class="title">FULL STACK DEVELOPER</h2>
+      <div class="sub-skills">React.js | Node.js | Express.js | MongoDB | REST APIs | JavaScript</div>
       <div class="contact-line">
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=prabodhbadimi1@gmail.com" target="_blank">prabodhbadimi1@gmail.com</a> | 
-        <a href="tel:8309009913">8309009913</a> | 
-        <a href="https://github.com/prabodh2" target="_blank">prabodh2</a> | 
-        <a href="https://www.linkedin.com/in/prabodh-badimi/" target="_blank">prabodh-badimi</a> | 
-        Kharghar, Maharashtra
+        8309009913 | Navi Mumbai, India | 
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=prabodhbadimi1@gmail.com" target="_blank">Email</a> | 
+        <a href="https://www.linkedin.com/in/prabodh-badimi/" target="_blank">Linkedin</a> | 
+        <a href="https://github.com/prabodh2" target="_blank">Github</a> | 
+        <a href="#" target="_blank">Portfolio</a>
       </div>
     </div>
 
     <!-- Summary -->
-    <div class="section-title">Summary</div>
+    <div class="section-title">SUMMARY</div>
     <p class="summary-text">
-      I'm a Fourth-year B.Tech CSE student and Full Stack Developer with hands-on experience building responsive, user-focused web applications using MERN Stack Dev. Proven track record across two internships developing e-commerce and company websites from scratch, optimizing performance, and collaborating with cross-functional teams. Skilled in clean, maintainable code and passionate about delivering scalable digital solutions.
+      Full Stack Developer and B.Tech Computer Science student with hands-on experience building responsive web applications and e-commerce platforms using the MERN stack. Skilled in React.js, Node.js, Express.js, MongoDB, JavaScript, RESTful APIs, responsive UI development, backend integration, testing, debugging, and performance optimization. Experienced in building applications from scratch and delivering scalable, production-ready solutions.
     </p>
 
-    <!-- Education -->
-    <div class="section-title">Education</div>
-    <ul class="education-list">
-      <li class="education-item">
-        <span><span class="edu-bullet">•</span> <span class="edu-title">Bachelor of Technology in Computer Science and Technology, ITM Skills University</span></span>
-        <span class="edu-dates">2023-2027</span>
-      </li>
-      <li class="education-item">
-        <span><span class="edu-bullet">•</span> <span class="edu-title">Sri Chaitanya College, Vijayawada, Andhra Pradesh</span></span>
-        <span class="edu-dates">2021-2023</span>
-      </li>
-      <li class="education-item">
-        <span><span class="edu-bullet">•</span> <span class="edu-title">Bhashyam High School, Adoni, Andhra Pradesh</span></span>
-        <span class="edu-dates">2020-2021</span>
-      </li>
-    </ul>
-
-    <!-- Technical Experience -->
-    <div class="section-title">Technical Experience</div>
+    <!-- Work Experience -->
+    <div class="section-title">WORK EXPERIENCE</div>
     
     <div class="exp-item">
       <div class="exp-header">
-        CODEVERSEBYSAIKUBER : <span>Frontend Developer Intern (Remote) [August, 2025 – December, 2025]</span>
+        <span>CODEVERSEBYSAIKUBER</span>
+        <span>Aug–Dec 2025</span>
+      </div>
+      <div class="exp-sub">
+        <span>Frontend Developer Intern</span>
+        <span class="location">Remote, India</span>
       </div>
       <ul class="bullets">
         <li>Developed a company website from scratch with a focus on responsive design and intuitive user experience.</li>
-        <li>Built user interfaces using modern frontend technologies, ensuring clean and maintainable code.</li>
-        <li>Followed best practices to improve performance, scalability, and overall application quality.</li>
-        <li>Worked closely with designers and backend developers to deliver accurate and production-ready features.</li>
-        <li>Tested and debugged components to ensure smooth functionality across different devices and browsers.</li>
+        <li>Built user interfaces using modern frontend technologies, following clean and maintainable coding practices.</li>
+        <li>Applied best practices to improve performance, scalability, and overall application quality.</li>
+        <li>Collaborated with designers and backend developers to deliver accurate, production-ready features.</li>
+        <li>Tested and debugged components to ensure reliable functionality across devices and browsers.</li>
       </ul>
     </div>
 
     <div class="exp-item">
       <div class="exp-header">
-        Funds And Toil Private Limited : <span>Full Stack Developer Intern (Remote) [May, 2026] – [July, 2026]</span>
+        <span>Funds And Toil Private Limited</span>
+        <span>May–Jul 2026</span>
+      </div>
+      <div class="exp-sub">
+        <span>Full Stack Developer Intern</span>
+        <span class="location">Remote, India</span>
       </div>
       <ul class="bullets">
-        <li>Developed and implemented a full-stack e-commerce website from scratch using the MERN stack..</li>
-        <li>Built responsive and user-friendly interfaces using React.js, focusing on performance and seamless user experience.</li>
+        <li>Developed and implemented a full-stack e-commerce website from scratch using the MERN stack.</li>
+        <li>Built responsive, user-friendly interfaces with React.js, focusing on performance and seamless user experience.</li>
         <li>Developed backend APIs and server-side functionality using Node.js and Express.js.</li>
-        <li>Integrated MongoDB for efficient data management and implemented core e-commerce functionalities.</li>
+        <li>Integrated MongoDB for efficient data management and implemented core e-commerce functionality.</li>
       </ul>
     </div>
 
-    <!-- Skills Summary -->
-    <div class="section-title">Skills Summary</div>
+    <!-- Projects -->
+    <div class="section-title">PROJECTS</div>
+
+    <div class="project-item">
+      <div class="project-title">Cars24 Clone | Used-Car Marketplace Web Application</div>
+      <ul class="bullets">
+        <li>Built a used-car marketplace web application enabling users to browse, list, buy, sell, and exchange vehicles.</li>
+        <li>Implemented car listings, price estimation, search-oriented user flows, and responsive user interface features.</li>
+        <li>Focused on responsive design, performance optimization, usability, and a smooth end-to-end user experience.</li>
+      </ul>
+    </div>
+
+    <div class="project-item">
+      <div class="project-title">Food Delivery Application | Full Stack</div>
+      <ul class="bullets">
+        <li>Developed a full-stack food ordering application using Flutter for the frontend and Node.js for the backend.</li>
+        <li>Implemented role-based access control for Users, Restaurant Owners, and Administrators.</li>
+        <li>Built core food ordering, restaurant management, and administrative workflows with a focus on usability, maintainability, and scalability.</li>
+      </ul>
+    </div>
+
+    <!-- Technical Skills -->
+    <div class="section-title">TECHNICAL SKILLS</div>
     <table class="skills-table">
       <tr>
-        <td class="skill-label">• Technical Skills:</td>
-        <td>C++, JavaScript, CSS, HTML, React, Python, Flutter, Node JS, Express JS, MongoDB</td>
+        <td class="skill-label">Programming Languages:</td>
+        <td>C++, Python, JavaScript, HTML5, CSS3</td>
       </tr>
       <tr>
-        <td class="skill-label">• AI:</td>
-        <td>AI Research & Development (R&D)</td>
+        <td class="skill-label">Frontend:</td>
+        <td>React.js, Flutter, Responsive Web Design</td>
       </tr>
       <tr>
-        <td class="skill-label">• Cloud Computing:</td>
-        <td>AWS</td>
+        <td class="skill-label">Backend:</td>
+        <td>Node.js, Express.js, RESTful APIs</td>
       </tr>
       <tr>
-        <td class="skill-label">• Tools:</td>
-        <td>Git, Github</td>
+        <td class="skill-label">Database:</td>
+        <td>MongoDB</td>
       </tr>
       <tr>
-        <td class="skill-label">• Soft Skills:</td>
-        <td>Communication, Active listener, Hard Working</td>
+        <td class="skill-label">Cloud & Tools:</td>
+        <td>AWS, Git, GitHub</td>
+      </tr>
+      <tr>
+        <td class="skill-label">Core:</td>
+        <td>Full Stack Development, API Integration, Debugging, Performance Optimization</td>
       </tr>
     </table>
 
-    <!-- Projects -->
-    <div class="section-title">Projects</div>
-
-    <div class="project-item">
-      <div class="project-title">• Paisa Pakad:</div>
-      <ul class="bullets">
-        <li>Worked on a secure digital payment and money management application for easy transactions and savings.</li>
-        <li>Contributed to implementing features for sending, receiving, and tracking money in a user-friendly interface.</li>
-        <li>Focused on improving security, performance, and overall user experience.</li>
-      </ul>
+    <!-- Certifications -->
+    <div class="section-title">CERTIFICATIONS</div>
+    <div class="cert-item">
+      <div class="cert-title">AWS Cloud Practitioner Essentials</div>
+      <div class="cert-sub">Amazon Web Services (AWS) — Issued Feb 2025</div>
+    </div>
+    <div class="cert-item">
+      <div class="cert-title">Cloud Essentials Knowledge Badge Assessment</div>
+      <div class="cert-sub">Amazon Web Services (AWS) — Issued Feb 2025</div>
     </div>
 
-    <div class="project-item">
-      <div class="project-title">• Cars24 (Clone):</div>
-      <ul class="bullets">
-        <li>Built a web application that enables users to buy, sell, and exchange used cars.</li>
-        <li>Designed features such as car listings, price estimation, and smooth user interaction.</li>
-        <li>Ensured responsive design and efficient performance for a hassle-free user experience.</li>
-      </ul>
-    </div>
+    <!-- Education -->
+    <div class="section-title">EDUCATION</div>
+    <ul class="education-list">
+      <li class="education-item">
+        <span class="edu-title">ITM Skills University — B.Tech in Computer Science and Technology</span>
+        <span class="edu-dates">2023 – 2027</span>
+      </li>
+      <li class="education-item">
+        <span class="edu-title">Sri Chaitanya College, Vijayawada, Andhra Pradesh — Class 12</span>
+        <span class="edu-dates">2021 – 2023</span>
+      </li>
+      <li class="education-item">
+        <span class="edu-title">Bhashyam High School, Adoni, Andhra Pradesh — Class 10</span>
+        <span class="edu-dates">2020 – 2021</span>
+      </li>
+    </ul>
 
-    <div class="project-item">
-      <div class="project-title">• Food Delivery App :</div>
-      <ul class="bullets">
-        <li>Developed a full-stack food ordering application using Flutter for the frontend and Node.js for the backend.</li>
-        <li>Implemented role-based access control for Users, Restaurant Owners, and Admins.</li>
-        <li>Built core features for food ordering, restaurant management, and administrative operations with a focus on usability and scalability.</li>
-      </ul>
-    </div>
+    <!-- Interests -->
+    <div class="section-title">INTERESTS</div>
+    <p style="font-size: 13px;">Cybersecurity, Ethical Hacking, Web Application Security, Secure Coding</p>
+
+    <!-- Languages -->
+    <div class="section-title">LANGUAGES</div>
+    <p style="font-size: 13px;">English, Hindi, Kannada, Telugu</p>
 
   </div>
 

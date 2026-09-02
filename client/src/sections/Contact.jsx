@@ -72,9 +72,9 @@ export const Contact = () => {
             </p>
           </motion.div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '40px', alignItems: 'start' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px', alignItems: 'start' }}>
             {/* Contact Details Left */}
-            <motion.div variants={slideUp} className="glass-panel" style={{ padding: '36px' }}>
+            <motion.div variants={slideUp} className="glass-panel contact-card">
               <h3 style={{ fontSize: '1.35rem', color: 'var(--text-primary)', fontWeight: 700, marginBottom: '24px' }}>
                 Contact Details
               </h3>
@@ -82,17 +82,17 @@ export const Contact = () => {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                 {/* Email */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                  <div style={{ width: '46px', height: '46px', borderRadius: '12px', background: 'rgba(59, 130, 246, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-blue-light)' }}>
+                  <div style={{ width: '46px', height: '46px', borderRadius: '12px', background: 'rgba(59, 130, 246, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-blue-light)', flexShrink: 0 }}>
                     <Mail size={22} />
                   </div>
-                  <div>
+                  <div style={{ minWidth: 0, wordBreak: 'break-word' }}>
                     <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block' }}>Email Address</span>
                     <a
                       href="https://mail.google.com/mail/?view=cm&fs=1&to=prabodhbadimi1@gmail.com"
                       target="_blank"
                       rel="noopener noreferrer"
                       title="Compose email to Prabodh in Gmail"
-                      style={{ fontSize: '1rem', color: 'var(--accent-blue-light)', fontWeight: 600, textDecoration: 'none' }}
+                      style={{ fontSize: '0.95rem', color: 'var(--accent-blue-light)', fontWeight: 600, textDecoration: 'none' }}
                     >
                       prabodhbadimi1@gmail.com
                     </a>
@@ -101,12 +101,12 @@ export const Contact = () => {
 
                 {/* Phone */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                  <div style={{ width: '46px', height: '46px', borderRadius: '12px', background: 'rgba(59, 130, 246, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-blue-light)' }}>
+                  <div style={{ width: '46px', height: '46px', borderRadius: '12px', background: 'rgba(59, 130, 246, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-blue-light)', flexShrink: 0 }}>
                     <Phone size={22} />
                   </div>
                   <div>
                     <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block' }}>Phone Number</span>
-                    <a href="tel:8309009913" style={{ fontSize: '1rem', color: 'var(--text-primary)', fontWeight: 600, textDecoration: 'none' }}>
+                    <a href="tel:8309009913" style={{ fontSize: '0.98rem', color: 'var(--text-primary)', fontWeight: 600, textDecoration: 'none' }}>
                       8309009913
                     </a>
                   </div>
@@ -114,12 +114,12 @@ export const Contact = () => {
 
                 {/* LinkedIn */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                  <div style={{ width: '46px', height: '46px', borderRadius: '12px', background: 'rgba(59, 130, 246, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-blue-light)' }}>
+                  <div style={{ width: '46px', height: '46px', borderRadius: '12px', background: 'rgba(59, 130, 246, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-blue-light)', flexShrink: 0 }}>
                     <Linkedin size={22} />
                   </div>
-                  <div>
+                  <div style={{ minWidth: 0, wordBreak: 'break-word' }}>
                     <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block' }}>LinkedIn Profile</span>
-                    <a href="https://www.linkedin.com/in/prabodh-badimi/" target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.98rem', color: 'var(--accent-blue-light)', fontWeight: 600, textDecoration: 'none' }}>
+                    <a href="https://www.linkedin.com/in/prabodh-badimi/" target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.92rem', color: 'var(--accent-blue-light)', fontWeight: 600, textDecoration: 'none' }}>
                       linkedin.com/in/prabodh-badimi/
                     </a>
                   </div>
@@ -127,12 +127,12 @@ export const Contact = () => {
 
                 {/* GitHub */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                  <div style={{ width: '46px', height: '46px', borderRadius: '12px', background: 'rgba(59, 130, 246, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-blue-light)' }}>
+                  <div style={{ width: '46px', height: '46px', borderRadius: '12px', background: 'rgba(59, 130, 246, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-blue-light)', flexShrink: 0 }}>
                     <Github size={22} />
                   </div>
-                  <div>
+                  <div style={{ minWidth: 0, wordBreak: 'break-word' }}>
                     <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block' }}>GitHub Repositories</span>
-                    <a href="https://github.com/prabodh2" target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.98rem', color: 'var(--accent-blue-light)', fontWeight: 600, textDecoration: 'none' }}>
+                    <a href="https://github.com/prabodh2" target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.92rem', color: 'var(--accent-blue-light)', fontWeight: 600, textDecoration: 'none' }}>
                       github.com/prabodh2
                     </a>
                   </div>
@@ -141,7 +141,7 @@ export const Contact = () => {
             </motion.div>
 
             {/* MERN Contact Form Right */}
-            <motion.div variants={slideUp} className="glass-panel" style={{ padding: '36px' }}>
+            <motion.div variants={slideUp} className="glass-panel contact-card">
               <h3 style={{ fontSize: '1.35rem', color: 'var(--text-primary)', fontWeight: 700, marginBottom: '24px' }}>
                 Let's Connect
               </h3>
@@ -324,9 +324,17 @@ export const Contact = () => {
       </div>
 
       <style>{`
+        .contact-card {
+          padding: 36px;
+        }
         @keyframes spin {
           from { transform: rotate(0deg); }
           to { transform: rotate(360deg); }
+        }
+        @media (max-width: 640px) {
+          .contact-card {
+            padding: 20px 16px;
+          }
         }
       `}</style>
     </section>

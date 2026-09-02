@@ -43,9 +43,8 @@ export const Projects = () => {
                   key={project._id || index}
                   variants={slideUp}
                   whileHover={{ y: -4 }}
-                  className="glass-panel"
+                  className="glass-panel project-glass-card"
                   style={{
-                    padding: '36px',
                     position: 'relative',
                     overflow: 'hidden',
                     borderLeft: `5px solid ${cardAccentColor}`
@@ -62,14 +61,14 @@ export const Projects = () => {
                       pointerEvents: 'none'
                     }}
                   >
-                    {isFintech ? <ShieldCheck size={260} /> : isFood ? <UtensilsCrossed size={260} /> : <Car size={260} />}
+                    {isFintech ? <ShieldCheck size={240} /> : isFood ? <UtensilsCrossed size={240} /> : <Car size={240} />}
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px', position: 'relative', zIndex: 1 }}>
+                  <div className="project-grid-inner" style={{ position: 'relative', zIndex: 1 }}>
                     {/* Left Details */}
                     <div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px', flexWrap: 'wrap' }}>
-                        <h3 style={{ fontSize: '1.75rem', color: 'var(--text-primary)', fontWeight: 800 }}>
+                        <h3 style={{ fontSize: 'clamp(1.35rem, 3vw, 1.75rem)', color: 'var(--text-primary)', fontWeight: 800 }}>
                           {project.title}
                         </h3>
 
@@ -81,7 +80,7 @@ export const Projects = () => {
                               background: 'rgba(234, 179, 8, 0.15)',
                               border: '1px solid rgba(234, 179, 8, 0.3)',
                               color: '#eab308',
-                              fontSize: '0.8rem',
+                              fontSize: '0.78rem',
                               fontWeight: 700,
                               textTransform: 'uppercase',
                               letterSpacing: '0.05em'
@@ -92,18 +91,18 @@ export const Projects = () => {
                         )}
                       </div>
 
-                      <p style={{ fontSize: '1.05rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '24px' }}>
+                      <p style={{ fontSize: '0.98rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '20px' }}>
                         {project.description}
                       </p>
 
                       {/* Contributions */}
-                      <div style={{ marginBottom: '24px' }}>
-                        <h4 style={{ fontSize: '0.9rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '12px' }}>
+                      <div style={{ marginBottom: '20px' }}>
+                        <h4 style={{ fontSize: '0.85rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '10px' }}>
                           Key Contributions:
                         </h4>
-                        <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '8px' }}>
+                        <ul className="project-contrib-list">
                           {project.contributions.map((contrib, cIdx) => (
-                            <li key={cIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.92rem', color: 'var(--text-secondary)' }}>
+                            <li key={cIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
                               <CheckCircle size={15} color="var(--accent-blue-light)" style={{ marginTop: '3px', flexShrink: 0 }} /> {contrib}
                             </li>
                           ))}
@@ -111,17 +110,17 @@ export const Projects = () => {
                       </div>
 
                       {/* Tech Tags */}
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '28px' }}>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '24px' }}>
                         {project.tags.map((tag, tIdx) => (
                           <span
                             key={tIdx}
                             style={{
-                              padding: '6px 14px',
+                              padding: '5px 12px',
                               borderRadius: '8px',
                               background: 'rgba(59, 130, 246, 0.1)',
                               border: '1px solid var(--border-color)',
                               color: 'var(--accent-blue-light)',
-                              fontSize: '0.85rem',
+                              fontSize: '0.82rem',
                               fontWeight: 600
                             }}
                           >
@@ -131,7 +130,7 @@ export const Projects = () => {
                       </div>
 
                       {/* Buttons */}
-                      <div style={{ display: 'flex', gap: '16px' }}>
+                      <div className="btn-group-responsive">
                         {project.githubUrl && (
                           <a
                             href={project.githubUrl}
@@ -167,48 +166,48 @@ export const Projects = () => {
                           ? 'linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, var(--bg-card-subtle) 100%)'
                           : 'linear-gradient(135deg, rgba(6, 182, 212, 0.12) 0%, var(--bg-card-subtle) 100%)',
                         border: '1px solid var(--border-color)',
-                        padding: '24px',
+                        padding: '20px',
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'center',
                         alignItems: 'center',
                         textAlign: 'center',
-                        minHeight: '220px'
+                        minHeight: '180px'
                       }}
                     >
                       {isFintech ? (
                         <>
-                          <div style={{ width: '60px', height: '60px', borderRadius: '16px', background: 'rgba(59, 130, 246, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-blue-light)', marginBottom: '16px' }}>
-                            <ShieldCheck size={32} />
+                          <div style={{ width: '54px', height: '54px', borderRadius: '14px', background: 'rgba(59, 130, 246, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-blue-light)', marginBottom: '14px' }}>
+                            <ShieldCheck size={28} />
                           </div>
-                          <h4 style={{ fontSize: '1.2rem', color: 'var(--text-primary)', fontWeight: 700, marginBottom: '6px' }}>
+                          <h4 style={{ fontSize: '1.15rem', color: 'var(--text-primary)', fontWeight: 700, marginBottom: '6px' }}>
                             Fintech Payment Engine
                           </h4>
-                          <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
+                          <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
                             High-security money transfer & transaction tracking architecture with modern UX.
                           </p>
                         </>
                       ) : isFood ? (
                         <>
-                          <div style={{ width: '60px', height: '60px', borderRadius: '16px', background: 'rgba(245, 158, 11, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#f59e0b', marginBottom: '16px' }}>
-                            <UtensilsCrossed size={32} />
+                          <div style={{ width: '54px', height: '54px', borderRadius: '14px', background: 'rgba(245, 158, 11, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#f59e0b', marginBottom: '14px' }}>
+                            <UtensilsCrossed size={28} />
                           </div>
-                          <h4 style={{ fontSize: '1.2rem', color: 'var(--text-primary)', fontWeight: 700, marginBottom: '6px' }}>
+                          <h4 style={{ fontSize: '1.15rem', color: 'var(--text-primary)', fontWeight: 700, marginBottom: '6px' }}>
                             Full-Stack Ordering System
                           </h4>
-                          <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
+                          <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
                             Flutter & Node.js architecture with role-based controls for users, owners & admins.
                           </p>
                         </>
                       ) : (
                         <>
-                          <div style={{ width: '60px', height: '60px', borderRadius: '16px', background: 'rgba(6, 182, 212, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-cyan)', marginBottom: '16px' }}>
-                            <Car size={32} />
+                          <div style={{ width: '54px', height: '54px', borderRadius: '14px', background: 'rgba(6, 182, 212, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-cyan)', marginBottom: '14px' }}>
+                            <Car size={28} />
                           </div>
-                          <h4 style={{ fontSize: '1.2rem', color: 'var(--text-primary)', fontWeight: 700, marginBottom: '6px' }}>
+                          <h4 style={{ fontSize: '1.15rem', color: 'var(--text-primary)', fontWeight: 700, marginBottom: '6px' }}>
                             Automotive E-Commerce Platform
                           </h4>
-                          <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
+                          <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
                             Interactive car valuation engine & multi-device marketplace interface.
                           </p>
                         </>
@@ -221,6 +220,39 @@ export const Projects = () => {
           </div>
         </motion.div>
       </div>
+
+      <style>{`
+        .project-glass-card {
+          padding: 36px;
+        }
+        .project-grid-inner {
+          display: grid;
+          grid-template-columns: 1fr 300px;
+          gap: 32px;
+        }
+        .project-contrib-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 8px;
+        }
+        @media (max-width: 900px) {
+          .project-grid-inner {
+            grid-template-columns: 1fr;
+            gap: 24px;
+          }
+        }
+        @media (max-width: 640px) {
+          .project-glass-card {
+            padding: 20px 16px;
+          }
+          .project-contrib-list {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
     </section>
   );
 };

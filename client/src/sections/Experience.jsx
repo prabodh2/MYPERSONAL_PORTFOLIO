@@ -28,17 +28,17 @@ export const Experience = () => {
           {/* Interactive Timeline Grid */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '32px', maxWidth: '900px', margin: '0 auto' }}>
             {experiences.map((exp, index) => (
-              <motion.div key={exp._id || index} variants={slideUp} className="glass-panel" style={{ padding: '36px' }}>
-                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px', marginBottom: '16px' }}>
+              <motion.div key={exp._id || index} variants={slideUp} className="glass-panel exp-glass-card">
+                <div className="exp-header">
                   <div>
-                    <h3 style={{ fontSize: '1.4rem', color: 'var(--text-primary)', fontWeight: 700, marginBottom: '4px' }}>
+                    <h3 style={{ fontSize: 'clamp(1.2rem, 3vw, 1.4rem)', color: 'var(--text-primary)', fontWeight: 700, marginBottom: '4px' }}>
                       {exp.role}
                     </h3>
-                    <h4 style={{ fontSize: '1.1rem', color: 'var(--accent-blue-light)', fontWeight: 600 }}>
+                    <h4 style={{ fontSize: '1.05rem', color: 'var(--accent-blue-light)', fontWeight: 600 }}>
                       {exp.company}
                     </h4>
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '6px' }}>
+                  <div className="exp-meta">
                     <span
                       style={{
                         display: 'inline-flex',
@@ -48,7 +48,7 @@ export const Experience = () => {
                         borderRadius: '20px',
                         background: 'rgba(59, 130, 246, 0.12)',
                         color: 'var(--accent-blue-light)',
-                        fontSize: '0.88rem',
+                        fontSize: '0.85rem',
                         fontWeight: 600
                       }}
                     >
@@ -64,14 +64,14 @@ export const Experience = () => {
 
                 {/* Key Responsibilities */}
                 <div style={{ marginTop: '20px', marginBottom: '24px' }}>
-                  <h5 style={{ fontSize: '0.95rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '12px' }}>
+                  <h5 style={{ fontSize: '0.88rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '12px' }}>
                     Key Contributions & Impact:
                   </h5>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '10px' }}>
+                  <div className="exp-responsibilities">
                     {exp.responsibilities.map((resp, rIdx) => (
                       <div key={rIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                         <CheckCircle2 size={16} color="var(--accent-blue-light)" style={{ marginTop: '4px', flexShrink: 0 }} />
-                        <span style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+                        <span style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
                           {resp}
                         </span>
                       </div>
@@ -103,6 +103,42 @@ export const Experience = () => {
           </div>
         </motion.div>
       </div>
+
+      <style>{`
+        .exp-glass-card {
+          padding: 36px;
+        }
+        .exp-header {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-items: flex-start;
+          gap: 16px;
+          margin-bottom: 16px;
+        }
+        .exp-meta {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          gap: 6px;
+        }
+        .exp-responsibilities {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+          gap: 10px;
+        }
+        @media (max-width: 640px) {
+          .exp-glass-card {
+            padding: 20px 16px;
+          }
+          .exp-meta {
+            align-items: flex-start;
+          }
+          .exp-responsibilities {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
     </section>
   );
 };

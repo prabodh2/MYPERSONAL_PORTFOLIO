@@ -35,7 +35,7 @@ export const Skills = () => {
           </motion.div>
 
           {/* Skill Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '28px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px' }}>
             {skillCategories.map((cat, idx) => {
               const IconComponent = categoryIconMap[cat.category] || Code2;
 
@@ -45,8 +45,7 @@ export const Skills = () => {
                   variants={slideUp}
                   whileHover={{ y: -6, scale: 1.01 }}
                   transition={{ duration: 0.2 }}
-                  className="glass-panel"
-                  style={{ padding: '30px' }}
+                  className="glass-panel skill-card"
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '24px' }}>
                     <div
@@ -70,7 +69,7 @@ export const Skills = () => {
                   </div>
 
                   {/* Skills Pill Items */}
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                     {cat.items.map((item, iIdx) => (
                       <motion.div
                         key={iIdx}
@@ -79,12 +78,12 @@ export const Skills = () => {
                           display: 'inline-flex',
                           alignItems: 'center',
                           gap: '8px',
-                          padding: '8px 16px',
+                          padding: '7px 14px',
                           borderRadius: '10px',
                           background: 'var(--bg-pill)',
                           border: '1px solid var(--border-color)',
                           color: 'var(--text-primary)',
-                          fontSize: '0.92rem',
+                          fontSize: '0.88rem',
                           fontWeight: 500,
                           cursor: 'default',
                           transition: 'var(--transition-smooth)'
@@ -109,6 +108,17 @@ export const Skills = () => {
           </div>
         </motion.div>
       </div>
+
+      <style>{`
+        .skill-card {
+          padding: 30px;
+        }
+        @media (max-width: 640px) {
+          .skill-card {
+            padding: 20px 16px;
+          }
+        }
+      `}</style>
     </section>
   );
 };
