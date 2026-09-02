@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Brain, BarChart3, Cloud, Wrench, Users, Sparkles, Check } from 'lucide-react';
+import { Code2, Layout, Server, Database, Cloud, Wrench, Brain, BarChart3, Users, Check } from 'lucide-react';
 import { slideUp, staggerContainer } from '../utils/animations';
 import { fetchSkills } from '../services/api';
 
 const categoryIconMap = {
+  'Programming Languages': Code2,
+  'Frontend': Layout,
+  'Backend': Server,
+  'Database': Database,
+  'Cloud & Tools': Cloud,
+  'Core Competencies': Wrench,
   'Technical Skills': Code2,
   'AI': Brain,
   'Data Science': BarChart3,
@@ -34,8 +40,8 @@ export const Skills = () => {
             <h2 className="heading-md text-gradient">Technical & Professional Competencies</h2>
           </motion.div>
 
-          {/* Skill Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px' }}>
+          {/* Skill Grid: 3 cards on line 1, 3 cards on line 2 */}
+          <div className="skills-grid">
             {skillCategories.map((cat, idx) => {
               const IconComponent = categoryIconMap[cat.category] || Code2;
 
@@ -110,10 +116,23 @@ export const Skills = () => {
       </div>
 
       <style>{`
+        .skills-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px;
+        }
         .skill-card {
           padding: 30px;
         }
+        @media (max-width: 992px) {
+          .skills-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
         @media (max-width: 640px) {
+          .skills-grid {
+            grid-template-columns: 1fr;
+          }
           .skill-card {
             padding: 20px 16px;
           }
@@ -122,3 +141,4 @@ export const Skills = () => {
     </section>
   );
 };
+
